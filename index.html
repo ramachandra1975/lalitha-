@@ -1198,5 +1198,1120 @@ Oṃ Śrī-Lalitā-Mahā-Tripurasundarī-Svarūpā<br>
 </div>
 
 </div><!-- /page-wrap -->
+  <!-- ═══════════════════════════════════════════════════════════════════
+     NĀDA-MĒḶA-SVARA ANALYSIS SECTION
+     Append this entire block before </body> in lalitha.culturalmusings.com
+     Requires the Google Fonts already loaded in the page head:
+       EB Garamond, Noto Serif Devanagari, Cinzel, Cormorant Garamond
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<style>
+/* ── NMS = Nāda-Mēḷa-Svara section namespace ── */
+.nms-wrap {
+  background: #0e0806;
+  color: #e8d5a3;
+  font-family: 'EB Garamond', Georgia, serif;
+  border-top: 3px double #8B1A1A;
+  margin-top: 4rem;
+}
+
+/* Cover band */
+.nms-header {
+  background: linear-gradient(180deg, #1a0a04 0%, #0e0806 100%);
+  border-bottom: 1px solid #8B4513;
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.nms-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(212,160,23,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.nms-header-om {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 3.4rem;
+  color: #D4A017;
+  text-shadow: 0 0 40px rgba(212,160,23,0.45);
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+.nms-header-title {
+  font-family: 'Cinzel', 'EB Garamond', serif;
+  font-size: 0.92rem;
+  color: #C8922A;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.nms-header-sub {
+  font-size: 0.84rem;
+  color: rgba(232,213,163,0.45);
+  letter-spacing: 0.06em;
+}
+
+/* ── DHYANA STRIP ── */
+.nms-dhyana-strip {
+  background: #120b06;
+  border-bottom: 1px solid #3a2010;
+  padding: 1rem 1.5rem;
+  overflow-x: auto;
+}
+.nms-dhyana-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  min-width: max-content;
+}
+.nms-dhyana-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid #3a2010;
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  transition: all 0.22s;
+  min-width: 160px;
+  max-width: 220px;
+  user-select: none;
+}
+.nms-dhyana-card:hover,
+.nms-dhyana-card.active {
+  background: rgba(139,69,19,0.22);
+  border-color: #C8922A;
+}
+.nms-dhyana-deva {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 0.77rem;
+  color: #D4A017;
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
+}
+.nms-dhyana-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 4px;
+}
+.nms-dhyana-tag {
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 0.7rem;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.nms-dhyana-num {
+  font-size: 0.64rem;
+  color: rgba(232,213,163,0.38);
+  margin-top: 4px;
+}
+.nms-dhyana-tooltip {
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  color: rgba(232,213,163,0.65);
+  font-style: italic;
+  min-height: 1.4em;
+  padding: 0 0.2rem;
+}
+
+/* ── TABS ── */
+.nms-tabs {
+  display: flex;
+  border-bottom: 1px solid #3a2010;
+  background: #0e0806;
+  overflow-x: auto;
+}
+.nms-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: rgba(232,213,163,0.48);
+  padding: 0.8rem 1.3rem;
+  cursor: pointer;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nms-tab:hover { color: rgba(232,213,163,0.75); }
+.nms-tab.active {
+  background: rgba(139,26,26,0.28);
+  border-bottom-color: #C8922A;
+  color: #D4A017;
+}
+
+/* ── CONTENT WRAPPER ── */
+.nms-content {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.nms-panel { display: none; }
+.nms-panel.active { display: block; }
+
+.nms-hint {
+  font-size: 0.82rem;
+  color: rgba(232,213,163,0.48);
+  font-style: italic;
+  margin-bottom: 1.4rem;
+}
+
+/* ── SOUND GRID ── */
+.nms-sound-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.nms-sound-card {
+  border-left: 4px solid transparent;
+  border-radius: 6px;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid #3a2010;
+}
+.nms-sound-card:hover { border-color: #8B4513; }
+.nms-sound-card.selected { background: rgba(139,26,26,0.18); }
+.nms-sound-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+.nms-akshara {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 2.2rem;
+  min-width: 2.5rem;
+  text-align: center;
+}
+.nms-sound-iast {
+  font-family: 'Cinzel', 'EB Garamond', serif;
+  font-size: 0.78rem;
+  color: #C8922A;
+  letter-spacing: 0.12em;
+}
+.nms-sound-name {
+  font-size: 0.88rem;
+  color: #e8d5a3;
+  margin-top: 2px;
+}
+.nms-sound-swara {
+  margin-left: auto;
+  text-align: right;
+  font-size: 0.78rem;
+  font-weight: bold;
+}
+.nms-sound-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+}
+.nms-meta-cell {
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+}
+.nms-meta-label {
+  color: rgba(232,213,163,0.38);
+  font-size: 0.67rem;
+  margin-bottom: 2px;
+}
+.nms-word-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 0.7rem;
+}
+.nms-word-tag {
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.67rem;
+  color: rgba(232,213,163,0.68);
+  font-style: italic;
+}
+/* expanded detail */
+.nms-detail {
+  display: none;
+  margin-top: 1rem;
+  border-top: 1px solid #3a2010;
+  padding-top: 1rem;
+}
+.nms-sound-card.selected .nms-detail { display: block; }
+.nms-detail-row { margin-bottom: 0.8rem; }
+.nms-detail-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.67rem;
+  color: #C8922A;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.nms-mela-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.nms-mela-badge {
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 0.67rem;
+  font-family: monospace;
+}
+.nms-alankara-code {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #D4A017;
+  background: rgba(0,0,0,0.4);
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+}
+.nms-detail-text {
+  font-size: 0.78rem;
+  color: rgba(232,213,163,0.68);
+  line-height: 1.7;
+}
+
+/* ── MELA TAB ── */
+.nms-mela-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.nms-search {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #3a2010;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  color: #e8d5a3;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  flex: 1;
+  min-width: 200px;
+  outline: none;
+}
+.nms-search:focus { border-color: #8B4513; }
+.nms-select {
+  background: #1a0a04;
+  border: 1px solid #3a2010;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  color: #e8d5a3;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  outline: none;
+}
+.nms-count {
+  font-size: 0.77rem;
+  color: rgba(232,213,163,0.38);
+}
+.nms-group-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #3a2010;
+  flex-wrap: wrap;
+}
+.nms-group-badge {
+  background: #8B1A1A;
+  border-radius: 4px;
+  padding: 0.2rem 0.7rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.74rem;
+  color: #D4A017;
+  letter-spacing: 0.1em;
+}
+.nms-ma-label {
+  font-size: 0.77rem;
+  color: #C8922A;
+}
+.nms-group-sounds {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.05rem;
+}
+.nms-mela-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.nms-mela-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid #3a2010;
+  border-radius: 5px;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nms-mela-card:hover { border-color: #8B4513; }
+.nms-mela-card.selected { background: rgba(139,26,26,0.18); border-color: #C8922A; }
+.nms-mela-num {
+  font-family: monospace;
+  font-size: 0.71rem;
+  color: #8B4513;
+  min-width: 2rem;
+}
+.nms-mela-sa {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1rem;
+  color: #D4A017;
+}
+.nms-mela-en { font-size: 0.82rem; color: #e8d5a3; margin-bottom: 0.3rem; }
+.nms-mela-svaras {
+  font-family: monospace;
+  font-size: 0.68rem;
+  color: rgba(232,213,163,0.48);
+  margin-bottom: 0.35rem;
+}
+.nms-mela-quality { font-size: 0.71rem; color: rgba(232,213,163,0.52); font-style: italic; }
+.nms-mela-bijas { margin-top: 0.7rem; border-top: 1px solid #3a2010; padding-top: 0.7rem; display: none; }
+.nms-mela-card.selected .nms-mela-bijas { display: block; }
+
+/* ── ALANKAR TAB ── */
+.nms-alankar-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid #3a2010;
+  border-left: 4px solid #8B1A1A;
+  border-radius: 5px;
+  padding: 1.3rem;
+  margin-bottom: 1rem;
+}
+.nms-alankar-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+.nms-alankar-num {
+  background: #8B1A1A;
+  border-radius: 50%;
+  width: 2rem; height: 2rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem; color: #D4A017;
+  flex-shrink: 0;
+}
+.nms-alankar-name {
+  font-family: 'Cinzel', 'EB Garamond', serif;
+  color: #D4A017; font-size: 1rem;
+}
+.nms-alankar-motion { font-size: 0.74rem; color: rgba(232,213,163,0.42); margin-top: 2px; }
+.nms-pattern-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 0.8rem;
+  background: rgba(0,0,0,0.3);
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+.nms-pattern-note {
+  border-radius: 3px;
+  padding: 3px 7px;
+  font-family: monospace;
+  font-size: 0.74rem;
+}
+.nms-pattern-sep { color: #8B4513; font-size: 1.2rem; margin: 0 2px; }
+.nms-alankar-desc {
+  font-size: 0.82rem;
+  color: rgba(232,213,163,0.68);
+  font-style: italic;
+  line-height: 1.7;
+}
+.nms-alankar-bijas-row {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+.nms-alankar-bija-tag {
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 0.74rem;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+
+/* ── OCTAVE TAB ── */
+.nms-octave-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  align-items: stretch;
+}
+.nms-octave-hz {
+  width: 90px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: flex-end;
+  font-size: 0.67rem; color: rgba(232,213,163,0.38);
+  font-family: monospace; text-align: right;
+}
+.nms-octave-bar { width: 8px; flex-shrink: 0; border-radius: 2px; }
+.nms-octave-card {
+  flex: 1;
+  border: 1px solid #2a1506;
+  border-radius: 5px;
+  padding: 0.7rem 1rem;
+}
+.nms-octave-card.core { background: rgba(139,26,26,0.07); border-color: #8B1A1A55; }
+.nms-octave-name-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.35rem; }
+.nms-octave-name {
+  font-family: 'Cinzel', 'EB Garamond', serif;
+  font-size: 0.79rem;
+  color: rgba(232,213,163,0.48);
+}
+.nms-octave-name.core { color: #D4A017; }
+.nms-octave-badge {
+  background: #8B1A1A55;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.64rem;
+  color: #C8922A;
+  font-family: 'Cinzel', serif;
+}
+.nms-octave-para {
+  background: rgba(212,160,23,0.18);
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.64rem;
+  color: #D4A017;
+}
+.nms-octave-note { font-size: 0.77rem; color: rgba(232,213,163,0.58); line-height: 1.6; }
+.nms-octave-bijas { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 0.5rem; }
+.nms-octave-bija {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.1rem;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+/* Three sthāyi summary */
+.nms-sthayi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid #3a2010;
+  padding-top: 1.5rem;
+}
+.nms-sthayi-card {
+  background: rgba(0,0,0,0.3);
+  border-radius: 5px;
+  padding: 1rem;
+}
+.nms-sthayi-name {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+.nms-sthayi-sub { font-size: 0.74rem; margin-bottom: 0.5rem; }
+.nms-sthayi-note { font-size: 0.77rem; color: rgba(232,213,163,0.58); line-height: 1.6; }
+
+/* ── MAP TAB ── */
+.nms-table-wrap { overflow-x: auto; margin-bottom: 2rem; }
+.nms-map-table { width: 100%; border-collapse: collapse; font-size: 0.77rem; }
+.nms-map-table thead tr { background: #1a0a04; border-bottom: 2px solid #8B1A1A; }
+.nms-map-table thead th {
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  color: #C8922A;
+  font-family: 'Cinzel', serif;
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.nms-map-table tbody tr { border-bottom: 1px solid #2a1506; }
+.nms-map-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.01); }
+.nms-map-table td { padding: 0.5rem 0.7rem; vertical-align: middle; }
+
+/* Insight cards */
+.nms-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.nms-insight-card {
+  background: rgba(0,0,0,0.3);
+  border-radius: 5px;
+  padding: 1rem;
+  border-left: 3px solid transparent;
+}
+.nms-insight-title {
+  font-size: 0.87rem;
+  font-family: 'Cinzel', 'EB Garamond', serif;
+  margin-bottom: 0.5rem;
+}
+.nms-insight-body { font-size: 0.77rem; color: rgba(232,213,163,0.63); line-height: 1.7; }
+
+/* Cycle block */
+.nms-cycle-wrap {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid #3a2010;
+  border-radius: 6px;
+  padding: 1.3rem;
+}
+.nms-cycle-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.71rem;
+  color: #C8922A;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+.nms-cycle-line { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #2a1506; }
+.nms-cycle-deva {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 0.9rem;
+  color: #D4A017;
+  margin-bottom: 0.5rem;
+}
+.nms-cycle-sounds { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.nms-cycle-tag {
+  border-radius: 4px;
+  padding: 0.35rem 0.65rem;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.64rem;
+  color: rgba(232,213,163,0.48);
+  line-height: 1.4;
+}
+.nms-cycle-tag-ak {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.1rem;
+}
+
+/* NMS Footer */
+.nms-footer {
+  border-top: 1px solid #3a2010;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.74rem;
+  color: rgba(232,213,163,0.28);
+  margin-top: 2rem;
+}
+.nms-footer-mantra {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.1rem;
+  color: #D4A017;
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 640px) {
+  .nms-sthayi-grid { grid-template-columns: 1fr; }
+  .nms-sound-grid { grid-template-columns: 1fr; }
+  .nms-mela-grid { grid-template-columns: 1fr; }
+  .nms-header-om { font-size: 2.4rem; }
+  .nms-content { padding: 1rem; }
+}
+</style>
+
+<!-- ═══════════ NMS SECTION MARKUP ═══════════ -->
+<section class="nms-wrap" id="nms-section" aria-label="Nāda Mēḷa Svara Analysis">
+
+  <!-- Header -->
+  <div class="nms-header">
+    <div class="nms-header-om">ॐ ललिता धयान — नाद-मेल-स्वर-विश्लेषणम्</div>
+    <div class="nms-header-title">Lalitā Dhyāna · Sound · 72 Mēḷakarta Rāgas · 9 Alankāras · 12 Octaves</div>
+    <div class="nms-header-sub">Complete sonic analysis after Bhāskararāya Makhin · Śaṅkarācārya · Nāṭyaśāstra · Saṅgīta Ratnākara</div>
+  </div>
+
+  <!-- Dhyana strip -->
+  <div class="nms-dhyana-strip">
+    <div class="nms-dhyana-row" id="nms-dhyana-row"></div>
+    <div class="nms-dhyana-tooltip" id="nms-dhyana-tooltip">&nbsp;</div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="nms-tabs" role="tablist">
+    <button class="nms-tab active" data-tab="sounds" role="tab">Phoneme Sounds</button>
+    <button class="nms-tab" data-tab="mela" role="tab">72 Mēḷakarta Rāgas</button>
+    <button class="nms-tab" data-tab="alankar" role="tab">9 Alankāras</button>
+    <button class="nms-tab" data-tab="octave" role="tab">12 Octaves</button>
+    <button class="nms-tab" data-tab="map" role="tab">Interconnection Map</button>
+  </div>
+
+  <!-- Content -->
+  <div class="nms-content">
+    <div id="nms-panel-sounds" class="nms-panel active"></div>
+    <div id="nms-panel-mela"   class="nms-panel"></div>
+    <div id="nms-panel-alankar" class="nms-panel"></div>
+    <div id="nms-panel-octave" class="nms-panel"></div>
+    <div id="nms-panel-map"   class="nms-panel"></div>
+  </div>
+
+  <div class="nms-footer">
+    <div class="nms-footer-mantra">ऐं ह्रीं श्रीं ललिताम्बिकायै नमः</div>
+    After Bhāskararāya Makhin · Saubhāgyabhāskara · Varivasya Rahasya · Nāṭyaśāstra · Saṅgīta Ratnākara · Nāda Bindu Upaniṣad
+  </div>
+</section>
+
+<script>
+(function(){
+"use strict";
+
+/* ─── DATA ─────────────────────────────────────────────────────────────── */
+const DHYANA_LINES = [
+  {id:"d1l1",dhyana:1,deva:"सिन्दूरारुणविग्रहां त्रिनयनां माणिक्यमौलिस्फुरत्",meaning:"She whose form blazes vermilion-red, three-eyed, crown flashing with rubies"},
+  {id:"d1l2",dhyana:1,deva:"तारानायकशेखरां स्मितमुखीमापीनवक्षोरुहाम्",meaning:"Crescent moon as crest-jewel, gentle-smiling face, full rounded breasts"},
+  {id:"d1l3",dhyana:1,deva:"पाणिभ्यामलिपूर्णरत्नचषकं रक्तोत्पलं विभ्रतीं",meaning:"Hands holding bee-filled gem-cup and blood-red lotus"},
+  {id:"d1l4",dhyana:1,deva:"सौम्यां रत्नघटस्थरक्तचरणां ध्यायेत्परामम्बिकाम्",meaning:"Gentle, red-footed in gem-vessel — meditate on the supreme Mother"},
+  {id:"d2l1",dhyana:2,deva:"अरुणां करुणातरङ्गिताक्षीं",meaning:"Red-hued, eyes rippling with waves of compassion"},
+  {id:"d2l2",dhyana:2,deva:"धृतपाशाङ्कुशपुष्पबाणचापाम्",meaning:"Holding noose, goad, flower-arrows, sugarcane bow"},
+  {id:"d2l3",dhyana:2,deva:"अणिमादिभिरावृतां मयुखैः",meaning:"Surrounded by Aṇimā and other Siddhis as rays of light"},
+  {id:"d2l4",dhyana:2,deva:"अहमित्येव विभावये भवानीम्",meaning:"I meditate on Bhavānī as my very Self — ahaṃ"},
+  {id:"d3l1",dhyana:3,deva:"ध्यायेत्पद्मासनस्थां विकसितवदनां पद्मपत्रायताक्षीं",meaning:"Meditate on her lotus-seated, open-faced, lotus-petal eyes"},
+  {id:"d3l2",dhyana:3,deva:"हेमाभां पीतवस्त्रां करकलितलसद्धेमपद्मां वराङ्गीम्",meaning:"Golden-lustred, yellow-robed, hands holding gleaming gold lotus, beautiful-limbed"},
+  {id:"d3l3",dhyana:3,deva:"सर्वालङ्कारयुक्तां सततमभयदां भक्तनम्रां भवानीं",meaning:"All-adorned, ever granting fearlessness, bowing to devotees — Bhavānī"},
+  {id:"d3l4",dhyana:3,deva:"श्रीविद्यां शान्तमूर्तिं सकलसुरनुतां सर्वसम्पत्प्रदात्रीम्",meaning:"Śrī Vidyā herself, peaceful form, praised by all devas, bestower of all wealth"},
+];
+
+const SOUNDS=[
+  {id:"s_la",akshara:"ल",iast:"La",name:"Pṛthivī Bīja",lines:["d1l1","d2l1","d3l1"],words:["Lalitā","lasat"],element:"Earth (Pṛthivī)",chakra:"Mūlādhāra",chakraNum:1,swara:"SA (Ṣaḍja)",swaraNum:1,hz:240,color:"#8B4513",melaGroup:[1,2,3,4,5,6],melaNotes:"All 6 Mēḷas of Shuddha-madhyama group 1 (Kanakāṅgi–Tānarupi) — La anchors the SA position in every mēḷa",alankara:"SA RI GA | GA RI SA",octaveZone:"Lower (Mandira sthāyi)",anatomy:"Perineum, coccyx, adrenal glands; 50–256 Hz resonance in pelvis",neuro:"Activates brainstem reticular formation; grounding/safety response via amygdala"},
+  {id:"s_ra",akshara:"र",iast:"Ra",name:"Agni / Tejas Bīja",lines:["d1l1","d1l3","d2l1","d3l2"],words:["aruṇa","rakta","ratna","rakt-otpala"],element:"Fire (Agni)",chakra:"Maṇipūra",chakraNum:3,swara:"GA (Gāndhāra)",swaraNum:3,hz:320,color:"#CC3300",melaGroup:[7,8,9,10,11,12],melaNotes:"Mēḷas 7–12 (Senāpāti group): Ra's fire manifests in the characteristic Komal-Ga of these rāgas — the burning, urgent quality",alankara:"SA RI GA MA | MA GA RI SA",octaveZone:"Lower–Middle transition",anatomy:"Solar plexus, liver, pancreas; 256–320 Hz enteric nerve resonance",neuro:"Alveolar trill creates 20–40Hz bursts; stimulates dopamine via mesolimbic pathway"},
+  {id:"s_sa",akshara:"स",iast:"Sa",name:"Śiva / Vāk Bīja",lines:["d1l1","d1l4","d2l4","d3l1","d3l3","d3l4"],words:["sindūra","saumy","sarvālaṅkāra","śānta","śrīvidyā"],element:"Ether (Ākāśa)",chakra:"Viśuddha",chakraNum:5,swara:"PA (Pañcama)",swaraNum:5,hz:400,color:"#336699",melaGroup:[13,14,15,16,17,18],melaNotes:"Mēḷas 13–18 (Gāyakapriya group): Sa-kāra's ether quality manifests in the open resonance of these rāgas featuring śuddha svaras",alankara:"SA RI GA MA PA | PA MA GA RI SA",octaveZone:"Middle (Madhya sthāyi)",anatomy:"Throat, thyroid, cervical plexus; 384–432 Hz pharyngeal resonance",neuro:"Palatal fricative activates left Broca's area; serotonin via vagus-enteric axis"},
+  {id:"s_ta",akshara:"त",iast:"Ta",name:"Tāra / Tārā Bīja",lines:["d1l1","d1l2","d2l3","d3l1","d3l3","d3l4"],words:["tri-nayana","tārānāyaka","taraṅgita","satataṃ","sura-nutāṃ"],element:"Air (Vāyu)",chakra:"Anāhata",chakraNum:4,swara:"MA (Madhyama)",swaraNum:4,hz:360,color:"#228B22",melaGroup:[19,20,21,22,23,24],melaNotes:"Mēḷas 19–24 (Jhankāradhvani group): Ta's air-quality of lightness and motion; these rāgas employ śuddha MA — the most stable 'air' interval",alankara:"SA RI GA MA PA DA | DA PA MA GA RI SA",octaveZone:"Middle",anatomy:"Heart, lungs, thoracic plexus; 320–360 Hz cardiac resonance window",neuro:"Alveolar dental stop triggers cardiac HRV coherence when in sustained nasal context"},
+  {id:"s_ma",akshara:"म",iast:"Ma",name:"Mahā / Śakti Bīja",lines:["d1l1","d1l2","d2l1","d2l3","d3l1","d3l2"],words:["māṇikya","mauli","smita-mukhī","aṇimā","mayūkhaiḥ","hemābhā"],element:"Water (Jala)",chakra:"Svādhiṣṭhāna",chakraNum:2,swara:"RI (Ṛṣabha)",swaraNum:2,hz:270,color:"#4169E1",melaGroup:[25,26,27,28,29,30],melaNotes:"Mēḷas 25–30 (Mārarañjanī group): Ma's water-nature = fluidity; Tīvra-Ma creates the 'yearning across space' quality of water seeking its level",alankara:"SA RI GA MA PA DA NI | NI DA PA MA GA RI SA",octaveZone:"Lower–Middle",anatomy:"Sacrum, reproductive organs, lumbar plexus; 288 Hz lymphatic resonance",neuro:"Bilabial nasal resonance at 250Hz activates hypothalamus; oxytocin release"},
+  {id:"s_pa",akshara:"प",iast:"Pa",name:"Pāśa / Vāyu Bīja",lines:["d2l2","d1l3","d3l1"],words:["pāśa","pāṇibhyām","padmāsana","padma-patrāyata"],element:"Air (Vāyu)",chakra:"Anāhata",chakraNum:4,swara:"MA (Madhyama)",swaraNum:4,hz:360,color:"#20B2AA",melaGroup:[31,32,33,34,35,36],melaNotes:"Mēḷas 31–36 (Yāgapriya group): Pa-kāra governs heart-cakra rāgas; tīvra-MA with specific NI combinations create the 'gate/noose' suspense effect",alankara:"SA RI GA MA PA DA NI SA' | reverse",octaveZone:"Middle",anatomy:"Heart-lung interface, cardiac plexus; bilabial P creates pericardial resonance",neuro:"Pa + nasal context triggers parasympathetic dominance via cardiac branch of vagus"},
+  {id:"s_na",akshara:"न",iast:"Na",name:"Nāda Bīja",lines:["d1l1","d1l2","d1l4","d2l3","d3l1","d3l3","d3l4"],words:["tri-nayana","tārānāyaka","saumy","sura-nutāṃ","sampat"],element:"Ākāśa (Space)",chakra:"Viśuddha",chakraNum:5,swara:"PA (Pañcama)",swaraNum:5,hz:400,color:"#9B59B6",melaGroup:[37,38,39,40,41,42],melaNotes:"Mēḷas 37–42 (Sālagam group): Na-kāra's space-quality manifests in the high DA emphasis of these rāgas — space opens at the ājñā level",alankara:"SA GA PA NI | NI PA GA SA (skip-pattern: Alankāra 4)",octaveZone:"Upper–Middle bridge",anatomy:"Nose, nasal septum, ethmoidal sinus — direct NO (nitric oxide) production",neuro:"Nasal N activates olfactory bulb → limbic piriform cortex; 15× NO increase documented"},
+  {id:"s_ha",akshara:"ह",iast:"Ha",name:"Śiva / Ākāśa Bīja",lines:["d1l2","d2l1","d3l2","d3l3"],words:["hemābhā","smita","bhavānīm","abhaya"],element:"Ākāśa (Ether)",chakra:"Viśuddha → Sahasrāra",chakraNum:6,swara:"DHA (Dhaivata)",swaraNum:6,hz:450,color:"#E74C3C",melaGroup:[43,44,45,46,47,48],melaNotes:"Mēḷas 43–48 (Navanitam group): Ha-kāra's horse-neigh origin (Hayagrīva!) manifests in DHA-prominent rāgas; DHA is the Ājñā note",alankara:"SA MA PA NI | NI PA MA SA (Alankāra 5 — wide leaps)",octaveZone:"Upper (Tāra sthāyi entry)",anatomy:"Throat, glottis, laryngeal branches of vagus; open-glottal exhalation",neuro:"Ha-kāra = exhalation breath; activates PNS; 21,600×/day as ajapā-mantra with Sa"},
+  {id:"s_va",akshara:"व",iast:"Va",name:"Varuṇa / Jala Bīja",lines:["d1l3","d1l2","d3l2","d3l4"],words:["vakṣoruhā","vibhratīṃ","vastrāṃ","varāṅgīm"],element:"Water (Jala)",chakra:"Svādhiṣṭhāna",chakraNum:2,swara:"RI (Ṛṣabha)",swaraNum:2,hz:270,color:"#1ABC9C",melaGroup:[49,50,51,52,53,54],melaNotes:"Mēḷas 49–54 (Dhavaḷāṃbari group): Va-kāra's water-flow found in rāgas where komal-NI creates the descending 'flow' into resolution",alankara:"SA RI MA PA DA SA' | reverse (Alankāra 6)",octaveZone:"Lower–Middle",anatomy:"Kidneys, lower abdomen, pelvic floor; labio-dental V creates low chest resonance",neuro:"Labiodental fricative at 300–500Hz; synchronizes with resting cardiac rhythm"},
+  {id:"s_ka",akshara:"क",iast:"Ka",name:"Kāma / Brahma Bīja",lines:["d1l1","d2l2","d3l1","d3l3"],words:["māṇikya","taraṅgita","vakṣoruhā","sarvālaṅkāra"],element:"Fire + Space",chakra:"Maṇipūra → Ājñā",chakraNum:3,swara:"GA (Gāndhāra)",swaraNum:3,hz:320,color:"#F39C12",melaGroup:[55,56,57,58,59,60],melaNotes:"Mēḷas 55–60 (Śyāmalāṅgi group): Ka-kāra's kāma-energy manifests in the tension between komal-DA and tīvra-MA — desire seeking resolution",alankara:"SA GA MA DA NI | NI DA MA GA SA (Alankāra 7)",octaveZone:"Middle",anatomy:"Jaw, hard palate, temporal lobe; velar stop creates sudden pressure release",neuro:"Velar K at 100–200Hz; activates reward anticipation in nucleus accumbens"},
+  {id:"s_da",akshara:"ध",iast:"Dha",name:"Dhyāna / Dhara Bīja",lines:["d2l2","d1l2","d3l2"],words:["dhṛta-pāśa","dhyāyet"],element:"Space (Ākāśa)",chakra:"Ājñā",chakraNum:6,swara:"DHA (Dhaivata)",swaraNum:6,hz:450,color:"#8E44AD",melaGroup:[61,62,63,64,65,66],melaNotes:"Mēḷas 61–66 (Kantāmaṇi group): Dha-kāra's meditation-quality in rāgas where DHA is vādi; Dhaivata = third-eye resonance",alankara:"SA RI GA MA PA DA NI SA' SA' NI DA PA (Alankāra 8 — full sapta-scale)",octaveZone:"Upper",anatomy:"Brow, frontal sinus, pineal gland via sphenoid bone vibration",neuro:"Aspirated Dh creates 450Hz pharyngeal resonance matching Ājñā gamma band (40Hz harmonics)"},
+  {id:"s_bha",akshara:"भ",iast:"Bha",name:"Bhāva / Bhairavī Bīja",lines:["d2l4","d3l3"],words:["bhavānīm","bhakta"],element:"Pṛthivī → Ākāśa (full span)",chakra:"Mūlādhāra → Sahasrāra",chakraNum:7,swara:"NI (Niṣāda)",swaraNum:7,hz:480,color:"#C0392B",melaGroup:[67,68,69,70,71,72],melaNotes:"Mēḷas 67–72 (Sucharitra group): Bha-kāra completes the phonemic cycle as Bhavānī = she who is existence itself; NI pulls toward octave resolution (liberation)",alankara:"SA' NI DA PA MA GA RI SA (full descending — Alankāra 9, Avarohaṇa)",octaveZone:"Upper (Tāra sthāyi), leads to next octave",anatomy:"Full-body resonance; Bh = bilabial with aspiration spanning low chest to crown",neuro:"Bh triggers global gamma coherence across all cortical regions; documented in sustained 'Bhavānī' japa"},
+  {id:"s_om",akshara:"ॐ",iast:"Oṃ",name:"Praṇava — Sarva Bīja",lines:["d1l1","d2l1","d2l4","d3l1","d3l4"],words:["Oṃ","ām","all nasal codas"],element:"All Five + Turīya",chakra:"All Cakras (Suṣumnā)",chakraNum:0,swara:"All Svaras (Ādi Svara)",swaraNum:0,hz:136,color:"#D4A017",melaGroup:Array.from({length:72},(_,i)=>i+1),melaNotes:"Oṃ underlies ALL 72 Mēḷakarta rāgas — it is the Sa (tonic) position from which every rāga builds. Every mēḷa begins from the Oṃ-frequency of 136Hz (Earth orbital resonance = SA in Śruti tuning)",alankara:"Root of all 9 Alankāras; A = aroha-impulse, U = middle-sustain, M = avaroha-resolve",octaveZone:"All 12 Octaves simultaneously (Anāhata Nāda)",anatomy:"Entire cranial vault, spinal cord (suṣumnā), 100 trillion cell membranes",neuro:"fMRI: limbic deactivation; EEG: alpha-theta coherence; vagal stimulation; 136Hz = Earth-tone"},
+];
+
+const MELA_RAGAS=[
+  {n:1,name:"Kanakāṅgi",sa:"कनकांगी",svaras:"SA RI₁ GA₁ MA₁ PA DHA₁ NI₁",group:1,quality:"Earth-deep, gravity"},
+  {n:2,name:"Ratnāṅgi",sa:"रत्नांगी",svaras:"SA RI₁ GA₁ MA₁ PA DHA₁ NI₂",group:1,quality:"Gem-luster, subtle fire"},
+  {n:3,name:"Gānamūrti",sa:"गानमूर्ति",svaras:"SA RI₁ GA₁ MA₁ PA DHA₁ NI₃",group:1,quality:"Form of music itself"},
+  {n:4,name:"Vanaspati",sa:"वनस्पति",svaras:"SA RI₁ GA₁ MA₁ PA DHA₂ NI₂",group:1,quality:"Forest-deep, grounded"},
+  {n:5,name:"Mānavati",sa:"मानवती",svaras:"SA RI₁ GA₁ MA₁ PA DHA₂ NI₃",group:1,quality:"Human dignity"},
+  {n:6,name:"Tānarupi",sa:"तानरूपी",svaras:"SA RI₁ GA₁ MA₁ PA DHA₃ NI₃",group:1,quality:"Form of Tāna (Nāda)"},
+  {n:7,name:"Senāpāti",sa:"सेनापति",svaras:"SA RI₁ GA₂ MA₁ PA DHA₁ NI₁",group:2,quality:"Warrior-commander"},
+  {n:8,name:"Hanumatodi",sa:"हनुमतोडि",svaras:"SA RI₁ GA₂ MA₁ PA DHA₁ NI₂",group:2,quality:"Devotion, strength"},
+  {n:9,name:"Dhenuka",sa:"धेनुका",svaras:"SA RI₁ GA₂ MA₁ PA DHA₁ NI₃",group:2,quality:"Cow-gentle, nurturing"},
+  {n:10,name:"Nāṭakapriya",sa:"नाटकप्रिय",svaras:"SA RI₁ GA₂ MA₁ PA DHA₂ NI₂",group:2,quality:"Drama-loving"},
+  {n:11,name:"Kokilapriya",sa:"कोकिलप्रिय",svaras:"SA RI₁ GA₂ MA₁ PA DHA₂ NI₃",group:2,quality:"Cuckoo-sweet"},
+  {n:12,name:"Rūpavati",sa:"रूपवती",svaras:"SA RI₁ GA₂ MA₁ PA DHA₃ NI₃",group:2,quality:"Beautiful form"},
+  {n:13,name:"Gāyakapriya",sa:"गायकप्रिय",svaras:"SA RI₁ GA₃ MA₁ PA DHA₁ NI₁",group:3,quality:"Singer's beloved"},
+  {n:14,name:"Vakuḷābharaṇam",sa:"वकुलाभरणम्",svaras:"SA RI₁ GA₃ MA₁ PA DHA₁ NI₂",group:3,quality:"Vakula-flower adorned"},
+  {n:15,name:"Māyāmālavagauḷa",sa:"मायामालवगौल",svaras:"SA RI₁ GA₃ MA₁ PA DHA₁ NI₃",group:3,quality:"Māyā + Mālavagauḷa"},
+  {n:16,name:"Chakravākam",sa:"चक्रवाकम्",svaras:"SA RI₁ GA₃ MA₁ PA DHA₂ NI₂",group:3,quality:"Chakravāka bird — longing"},
+  {n:17,name:"Sūryakāntam",sa:"सूर्यकान्तम्",svaras:"SA RI₁ GA₃ MA₁ PA DHA₂ NI₃",group:3,quality:"Sun-jewel — solar"},
+  {n:18,name:"Hāṭakāmbari",sa:"हाटकाम्बरि",svaras:"SA RI₁ GA₃ MA₁ PA DHA₃ NI₃",group:3,quality:"Golden sky — Hemābhā!"},
+  {n:19,name:"Jhankāradhvani",sa:"झंकारध्वनि",svaras:"SA RI₂ GA₂ MA₁ PA DHA₁ NI₁",group:4,quality:"Buzzing/vibrating sound"},
+  {n:20,name:"Naṭabhairavi",sa:"नटभैरवी",svaras:"SA RI₂ GA₂ MA₁ PA DHA₁ NI₂",group:4,quality:"Dancing Bhairavī — Dhyāna I"},
+  {n:21,name:"Kīravāṇi",sa:"कीरवाणी",svaras:"SA RI₂ GA₂ MA₁ PA DHA₁ NI₃",group:4,quality:"Parrot-speech — Sarasvatī"},
+  {n:22,name:"Kharaharapriya",sa:"खरहरप्रिय",svaras:"SA RI₂ GA₂ MA₁ PA DHA₂ NI₂",group:4,quality:"Beloved of Śiva-Kharaharapriya"},
+  {n:23,name:"Gaurimanohari",sa:"गौरीमनोहरि",svaras:"SA RI₂ GA₂ MA₁ PA DHA₂ NI₃",group:4,quality:"Gaurī-enchanting — Karuṇā"},
+  {n:24,name:"Varuṇapriya",sa:"वरुणप्रिय",svaras:"SA RI₂ GA₂ MA₁ PA DHA₃ NI₃",group:4,quality:"Varuṇa-beloved — water clarity"},
+  {n:25,name:"Mārarañjanī",sa:"मारारञ्जनी",svaras:"SA RI₂ GA₃ MA₁ PA DHA₁ NI₁",group:5,quality:"Slayer's delight — Kāma"},
+  {n:26,name:"Chārukeśī",sa:"चारुकेशी",svaras:"SA RI₂ GA₃ MA₁ PA DHA₁ NI₂",group:5,quality:"Beautiful-haired — Lalitā!"},
+  {n:27,name:"Sarasāṅgi",sa:"सरसांगी",svaras:"SA RI₂ GA₃ MA₁ PA DHA₁ NI₃",group:5,quality:"Juicy/fluid form"},
+  {n:28,name:"Harikāmbhoji",sa:"हरिकाम्भोजि",svaras:"SA RI₂ GA₃ MA₁ PA DHA₂ NI₂",group:5,quality:"Viṣṇu-Kāmbhoji — devotion"},
+  {n:29,name:"Dhīraśankarābharaṇam",sa:"धीरशंकराभरणम्",svaras:"SA RI₂ GA₃ MA₁ PA DHA₂ NI₃",group:5,quality:"Śaṅkara's jewel — Dhyāna III"},
+  {n:30,name:"Nāgānandini",sa:"नागानन्दिनी",svaras:"SA RI₂ GA₃ MA₁ PA DHA₃ NI₃",group:5,quality:"Serpent-joy — Kuṇḍalinī"},
+  {n:31,name:"Yāgapriya",sa:"यागप्रिय",svaras:"SA RI₃ GA₃ MA₁ PA DHA₁ NI₁",group:6,quality:"Ritual-beloved"},
+  {n:32,name:"Rāgavardhini",sa:"रागवर्धिनी",svaras:"SA RI₃ GA₃ MA₁ PA DHA₁ NI₂",group:6,quality:"Rāga-increaser"},
+  {n:33,name:"Gāngeyabhūṣaṇi",sa:"गांगेयभूषणि",svaras:"SA RI₃ GA₃ MA₁ PA DHA₁ NI₃",group:6,quality:"Gaṅgā-adorned"},
+  {n:34,name:"Vāgadhīśvari",sa:"वागधीश्वरी",svaras:"SA RI₃ GA₃ MA₁ PA DHA₂ NI₂",group:6,quality:"Goddess of speech — Aiṃ!"},
+  {n:35,name:"Śūlini",sa:"शूलिनी",svaras:"SA RI₃ GA₃ MA₁ PA DHA₂ NI₃",group:6,quality:"Trident-bearer — Śiva"},
+  {n:36,name:"Chalanāṭa",sa:"चलनाट",svaras:"SA RI₃ GA₃ MA₁ PA DHA₃ NI₃",group:6,quality:"Moving drama — Kriyā Śakti"},
+  {n:37,name:"Sālagam",sa:"सालगम्",svaras:"SA RI₁ GA₁ MA₂ PA DHA₁ NI₁",group:7,quality:"Tīvra-MA entry — tension"},
+  {n:38,name:"Jalārṇavam",sa:"जलार्णवम्",svaras:"SA RI₁ GA₁ MA₂ PA DHA₁ NI₂",group:7,quality:"Ocean of water — Jala"},
+  {n:39,name:"Jhālavarāḷi",sa:"झालवराळि",svaras:"SA RI₁ GA₁ MA₂ PA DHA₁ NI₃",group:7,quality:"Shimmering"},
+  {n:40,name:"Navanītam",sa:"नवनीतम्",svaras:"SA RI₁ GA₁ MA₂ PA DHA₂ NI₂",group:7,quality:"Fresh butter — Kṛṣṇa"},
+  {n:41,name:"Pāvani",sa:"पावनी",svaras:"SA RI₁ GA₁ MA₂ PA DHA₂ NI₃",group:7,quality:"Purifier — Śrīṃ"},
+  {n:42,name:"Raghupriya",sa:"रघुप्रिय",svaras:"SA RI₁ GA₁ MA₂ PA DHA₃ NI₃",group:7,quality:"Raghu-beloved — Rāma"},
+  {n:43,name:"Gavāmbhodi",sa:"गवाम्भोधि",svaras:"SA RI₁ GA₂ MA₂ PA DHA₁ NI₁",group:8,quality:"Cow-ocean"},
+  {n:44,name:"Bhavapriya",sa:"भवप्रिय",svaras:"SA RI₁ GA₂ MA₂ PA DHA₁ NI₂",group:8,quality:"Bhava-beloved — Bhavānī!"},
+  {n:45,name:"Śubhapantuvarāḷi",sa:"शुभपन्तुवराळि",svaras:"SA RI₁ GA₂ MA₂ PA DHA₁ NI₃",group:8,quality:"Auspicious full-scale"},
+  {n:46,name:"Ṣhaḍvidhamārgiṇi",sa:"षड्विधमार्गिणी",svaras:"SA RI₁ GA₂ MA₂ PA DHA₂ NI₂",group:8,quality:"Six-path traverser"},
+  {n:47,name:"Suvarṇāṅgi",sa:"सुवर्णांगी",svaras:"SA RI₁ GA₂ MA₂ PA DHA₂ NI₃",group:8,quality:"Golden-limbed — Hemābhā!"},
+  {n:48,name:"Divyamaṇi",sa:"दिव्यमणि",svaras:"SA RI₁ GA₂ MA₂ PA DHA₃ NI₃",group:8,quality:"Divine gem — Māṇikya"},
+  {n:49,name:"Dhavaḷāmbari",sa:"धवलांबरि",svaras:"SA RI₁ GA₃ MA₂ PA DHA₁ NI₁",group:9,quality:"White-sky — Śānta"},
+  {n:50,name:"Nāmanārāyaṇi",sa:"नामनारायणी",svaras:"SA RI₁ GA₃ MA₂ PA DHA₁ NI₂",group:9,quality:"Nārāyaṇa's name — Nāma"},
+  {n:51,name:"Kāmavardhini",sa:"कामवर्धिनी",svaras:"SA RI₁ GA₃ MA₂ PA DHA₁ NI₃",group:9,quality:"Kāma-increaser — Klīṃ"},
+  {n:52,name:"Rāmapriya",sa:"रामप्रिय",svaras:"SA RI₁ GA₃ MA₂ PA DHA₂ NI₂",group:9,quality:"Rāma-beloved"},
+  {n:53,name:"Gamanasrama",sa:"गमनश्रम",svaras:"SA RI₁ GA₃ MA₂ PA DHA₂ NI₃",group:9,quality:"Movement-rest"},
+  {n:54,name:"Viśvambhari",sa:"विश्वम्भरी",svaras:"SA RI₁ GA₃ MA₂ PA DHA₃ NI₃",group:9,quality:"World-sustainer — Parameśvarī"},
+  {n:55,name:"Śyāmalāṅgi",sa:"श्यामलांगी",svaras:"SA RI₂ GA₂ MA₂ PA DHA₁ NI₁",group:10,quality:"Dark-limbed — Śyāmalā"},
+  {n:56,name:"Ṣaṇmukhapriya",sa:"षण्मुखप्रिय",svaras:"SA RI₂ GA₂ MA₂ PA DHA₁ NI₂",group:10,quality:"Six-faced beloved — Ṣaḍānana"},
+  {n:57,name:"Siṃhendramadhyamam",sa:"सिंहेन्द्रमध्यमम्",svaras:"SA RI₂ GA₂ MA₂ PA DHA₁ NI₃",group:10,quality:"Lion-king middle"},
+  {n:58,name:"Hemāvati",sa:"हेमावती",svaras:"SA RI₂ GA₂ MA₂ PA DHA₂ NI₂",group:10,quality:"Golden lady — Hemābhā!"},
+  {n:59,name:"Dharmavati",sa:"धर्मवती",svaras:"SA RI₂ GA₂ MA₂ PA DHA₂ NI₃",group:10,quality:"Dharma-upholder"},
+  {n:60,name:"Nītimatī",sa:"नीतिमती",svaras:"SA RI₂ GA₂ MA₂ PA DHA₃ NI₃",group:10,quality:"Ethical wisdom"},
+  {n:61,name:"Kantāmaṇi",sa:"कान्तामणि",svaras:"SA RI₂ GA₃ MA₂ PA DHA₁ NI₁",group:11,quality:"Beloved gem"},
+  {n:62,name:"Ṛṣhabhapriya",sa:"ऋषभप्रिय",svaras:"SA RI₂ GA₃ MA₂ PA DHA₁ NI₂",group:11,quality:"Ṛṣabha-beloved"},
+  {n:63,name:"Latāṅgi",sa:"लतांगी",svaras:"SA RI₂ GA₃ MA₂ PA DHA₁ NI₃",group:11,quality:"Vine-limbed — graceful"},
+  {n:64,name:"Vāchaspati",sa:"वाचस्पति",svaras:"SA RI₂ GA₃ MA₂ PA DHA₂ NI₂",group:11,quality:"Lord of speech — Vāgbhava!"},
+  {n:65,name:"Mechakalyāṇi",sa:"मेचकल्याणी",svaras:"SA RI₂ GA₃ MA₂ PA DHA₂ NI₃",group:11,quality:"Kalyāṇī — Dhyāna II rāga"},
+  {n:66,name:"Chitrāmbari",sa:"चित्राम्बरी",svaras:"SA RI₂ GA₃ MA₂ PA DHA₃ NI₃",group:11,quality:"Painted sky"},
+  {n:67,name:"Sucharitra",sa:"सुचरित्र",svaras:"SA RI₃ GA₃ MA₂ PA DHA₁ NI₁",group:12,quality:"Good conduct"},
+  {n:68,name:"Jyotisvarūpiṇi",sa:"ज्योतिस्वरूपिणी",svaras:"SA RI₃ GA₃ MA₂ PA DHA₁ NI₂",group:12,quality:"Form of light — Jyoti"},
+  {n:69,name:"Dhātuvardhini",sa:"धातुवर्धिनी",svaras:"SA RI₃ GA₃ MA₂ PA DHA₁ NI₃",group:12,quality:"Element-increaser"},
+  {n:70,name:"Nāsikabhūṣaṇi",sa:"नासिकाभूषणी",svaras:"SA RI₃ GA₃ MA₂ PA DHA₂ NI₂",group:12,quality:"Nose-ornament — Na-kāra!"},
+  {n:71,name:"Kośalam",sa:"कोशलम्",svaras:"SA RI₃ GA₃ MA₂ PA DHA₂ NI₃",group:12,quality:"Treasure/skill"},
+  {n:72,name:"Rasikapriya",sa:"रसिकप्रिय",svaras:"SA RI₃ GA₃ MA₂ PA DHA₃ NI₃",group:12,quality:"Rasa-lover — the completion"},
+];
+
+const ALANKARAS=[
+  {n:1,name:"Sarali Varisai",pattern:"SA RI GA MA PA DA NI SA'",desc:"Ascending scale — Ārohana. Every bīja follows this upward path from Mūlādhāra to Sahasrāra",motion:"↑"},
+  {n:2,name:"Janta Varisai",pattern:"SA SA RI RI GA GA MA MA PA PA DA DA NI NI SA'",desc:"Doubled notes — sustained bīja resonance. Each akṣara held double creates maximum cellular penetration",motion:"↑↑"},
+  {n:3,name:"Daattu Varisai",pattern:"SA GA | RI MA | GA PA | MA DA | PA NI | DA SA'",desc:"Skip pattern — bījas leap over each other like Ra over La; mirrors the Kuṇḍalinī's cakra-skipping ascent",motion:"↑↗"},
+  {n:4,name:"Melsthayi Varisai",pattern:"SA RI GA MA PA | SA' NI DA PA | MA GA RI SA",desc:"Upper octave traversal — reaching Tāra sthāyi. Oṃ's ardha-mātrā resonance lives here",motion:"↑↓"},
+  {n:5,name:"Alankar 5",pattern:"SA RI GA | GA RI SA | SA RI GA MA | MA GA RI SA",desc:"Descent-from-ascent — the Pañcadaśī's three kūṭas mirror: rise (Vāgbhava), sustain (Kāmarāja), descend (Śakti)",motion:"↑↓"},
+  {n:6,name:"Alankar 6",pattern:"SA MA RI PA | GA DA MA NI | PA SA' DA RI'",desc:"Wide leaps — Ha-kāra and Bha-kāra jump intervals; Hayagrīva's DHA-leap to upper octave",motion:"↕"},
+  {n:7,name:"Alankar 7",pattern:"SA RI SA GA RI MA GA PA | MA DA PA NI DA SA'",desc:"Winding ascent — the pāśa (noose) pattern: approach, bind, release; one step back for two forward",motion:"↗"},
+  {n:8,name:"Alankar 8",pattern:"SA SA' RI RI' GA GA' | SA' SA NI NI DA DA",desc:"Octave jumps — connects all 12 octaves simultaneously; Oṃ's property of traversing all registers",motion:"↕↕"},
+  {n:9,name:"Alankar 9",pattern:"SA NI DA PA MA GA RI SA",desc:"Full descending scale — Avarohaṇa. Bhavānī's descent into manifestation; Bha-kāra leads the return",motion:"↓"},
+];
+
+const OCTAVES=[
+  {n:1,name:"Mandra-Mandra",hz:"16–32",note:"Sub-infrasonic; felt not heard. Root consciousness; SA of cosmic origin. Mūlādhāra seed-vibration. Earth's Schumann resonance (7.83Hz) is its sub-harmonic",core:false},
+  {n:2,name:"Mandra-Ati-Mandra",hz:"32–64",note:"Lowest audible octave. Physical body foundation. La-kāra here. Drumbeat of the universe",core:false},
+  {n:3,name:"Mandra sthāyi",hz:"64–128",note:"Classical 'lower octave'. Traditional Carnatic/Hindustāni Mandra SA. La, Ra, Va bījas dominant. Mūlādhāra–Svādhiṣṭhāna range",core:true},
+  {n:4,name:"Madhya-Mandra",hz:"128–256",note:"Bridge zone. Oṃ at 136Hz sits here — the Earth-tone. Ma, Ta bījas active. Svādhiṣṭhāna–Maṇipūra",core:true},
+  {n:5,name:"Madhya sthāyi",hz:"256–512",note:"PRIMARY HUMAN VOICE OCTAVE. SA at 240–256Hz. All 72 mēḷas are constructed around this octave. Maṇipūra–Anāhata. Sa, Pa, Na bījas",core:true},
+  {n:6,name:"Madhya-Tāra",hz:"512–1024",note:"Upper voice, overtone singing. Ha-kāra, Ka-kāra. Anāhata–Viśuddha. Where cardiac and throat chakras meet. HRV coherence frequency harmonics",core:true},
+  {n:7,name:"Tāra sthāyi",hz:"1024–2048",note:"Classical 'upper octave' of śāstric music. SA' = Tāra SA. Da, Dha bījas. Viśuddha–Ājñā. Gamma brainwave zone",core:true},
+  {n:8,name:"Madhya-Ati-Tāra",hz:"2048–4096",note:"Formant region of vowels. Śa, Ṣa, Sa fricatives. Sarasvatī's domain. Ājñā–Sahasrāra bridge. Left cortex language zone",core:false},
+  {n:9,name:"Ati-Tāra sthāyi",hz:"4096–8192",note:"High formant zone. Ī vowel second formant (~3500Hz). Sahasrāra. Where Ānusvāra (ṃ) radiates as harmonics into the pineal",core:false},
+  {n:10,name:"Para-Tāra",hz:"8192–16384",note:"Ultrasonic fringe of human hearing. Corresponds to Parā Nāda in Śāradātilaka. Ruby-red frequency equivalent",core:false},
+  {n:11,name:"Anāhata Nāda",hz:"16k–20k+",note:"Beyond hearing threshold. Nāda unmade by percussion. The Oṃ heard in deep silence. Turīya state. Pineal crystal resonance domain",core:false},
+  {n:12,name:"Para-Para Nāda",hz:"Transcendent",note:"The Śabda Brahman itself. Not frequency but pure Awareness-as-Sound. Every bīja dissolves back here. Parā Vāk of Sauḥ",core:false},
+];
+
+const chakraColors={1:"#8B4513",2:"#FF6600",3:"#FFD700",4:"#228B22",5:"#1E90FF",6:"#4B0082",7:"#9B59B6",0:"#D4A017"};
+
+/* ─── HELPERS ─────────────────────────────────────────────────────────── */
+function soundsForLine(lid){ return SOUNDS.filter(s=>s.lines.includes(lid)); }
+function el(id){ return document.getElementById(id); }
+function truncate(str,n){ return str.length>n?str.slice(0,n)+'…':str; }
+
+/* ─── DHYANA STRIP ────────────────────────────────────────────────────── */
+let hoveredLine=null;
+const dhyanaRow=el('nms-dhyana-row');
+const dhyanaTooltip=el('nms-dhyana-tooltip');
+
+DHYANA_LINES.forEach(line=>{
+  const sounds=soundsForLine(line.id);
+  const card=document.createElement('div');
+  card.className='nms-dhyana-card';
+  card.innerHTML=`
+    <div class="nms-dhyana-deva">${truncate(line.deva,40)}</div>
+    <div class="nms-dhyana-tags">${
+      sounds.map(s=>`<span class="nms-dhyana-tag" style="background:${s.color}33;border:1px solid ${s.color}66;color:${s.color}">${s.akshara}</span>`).join('')
+    }</div>
+    <div class="nms-dhyana-num">Dhyāna ${line.dhyana}</div>`;
+  card.addEventListener('mouseenter',()=>{ dhyanaTooltip.textContent=line.meaning; card.classList.add('active'); });
+  card.addEventListener('mouseleave',()=>{ dhyanaTooltip.innerHTML='&nbsp;'; card.classList.remove('active'); });
+  dhyanaRow.appendChild(card);
+});
+
+/* ─── TABS ────────────────────────────────────────────────────────────── */
+const tabs=document.querySelectorAll('.nms-tab');
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.nms-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    el('nms-panel-'+tab.dataset.tab).classList.add('active');
+  });
+});
+
+/* ─── SOUNDS PANEL ────────────────────────────────────────────────────── */
+(function buildSounds(){
+  const panel=el('nms-panel-sounds');
+  let selectedId=null;
+
+  panel.innerHTML=`<p class="nms-hint">Click any phoneme card to see its full mēḷa, alankāra, and octave connections. Colors encode the cakra/element association.</p><div class="nms-sound-grid" id="nms-sg"></div>`;
+  const grid=el('nms-sg');
+
+  SOUNDS.forEach(s=>{
+    const card=document.createElement('div');
+    card.className='nms-sound-card';
+    card.style.cssText=`border-left-color:${s.color};border-color:#3a2010`;
+    card.innerHTML=`
+      <div class="nms-sound-top">
+        <div class="nms-akshara" style="color:${s.color};text-shadow:0 0 20px ${s.color}66">${s.akshara}</div>
+        <div>
+          <div class="nms-sound-iast">${s.iast}</div>
+          <div class="nms-sound-name">${s.name}</div>
+        </div>
+        <div class="nms-sound-swara" style="color:${chakraColors[s.chakraNum]}">${s.swara.split('(')[0].trim()}</div>
+      </div>
+      <div class="nms-sound-meta">
+        <div class="nms-meta-cell"><div class="nms-meta-label">Element</div>${s.element}</div>
+        <div class="nms-meta-cell"><div class="nms-meta-label">Hz</div><span style="color:${s.color};font-family:monospace">${s.hz} Hz</span></div>
+      </div>
+      <div class="nms-word-tags">${s.words.slice(0,4).map(w=>`<span class="nms-word-tag" style="background:${s.color}18;border:1px solid ${s.color}33">${w}</span>`).join('')}</div>
+      <div class="nms-detail">
+        <div class="nms-detail-row">
+          <div class="nms-detail-label">Mēḷakarta Groups</div>
+          <div class="nms-mela-badges">${s.melaGroup.map(g=>`<span class="nms-mela-badge" style="background:${s.color}28;border:1px solid ${s.color}44;color:${s.color}">${g}</span>`).join('')}</div>
+          <div class="nms-detail-text" style="margin-top:5px">${s.melaNotes}</div>
+        </div>
+        <div class="nms-detail-row">
+          <div class="nms-detail-label">Alankāra Pattern</div>
+          <div class="nms-alankara-code">${s.alankara}</div>
+        </div>
+        <div class="nms-detail-row">
+          <div class="nms-detail-label">Octave Zone</div>
+          <div class="nms-detail-text">${s.octaveZone}</div>
+        </div>
+        <div class="nms-detail-row">
+          <div class="nms-detail-label">Anatomy</div>
+          <div class="nms-detail-text">${s.anatomy}</div>
+        </div>
+        <div class="nms-detail-row">
+          <div class="nms-detail-label">Neuroscience</div>
+          <div class="nms-detail-text">${s.neuro}</div>
+        </div>
+      </div>`;
+    card.addEventListener('click',()=>{
+      if(selectedId===s.id){ card.classList.remove('selected'); card.style.borderColor='#3a2010'; selectedId=null; }
+      else {
+        document.querySelectorAll('#nms-sg .nms-sound-card').forEach(c=>{ c.classList.remove('selected'); c.style.borderColor='#3a2010'; });
+        card.classList.add('selected'); card.style.borderColor=s.color; selectedId=s.id;
+      }
+    });
+    grid.appendChild(card);
+  });
+})();
+
+/* ─── MELA PANEL ──────────────────────────────────────────────────────── */
+(function buildMela(){
+  const panel=el('nms-panel-mela');
+  panel.innerHTML=`
+    <div class="nms-mela-controls">
+      <input class="nms-search" id="nms-msearch" placeholder="Search rāga name or Sanskrit…" />
+      <select class="nms-select" id="nms-mgrp">
+        <option value="0">All 12 Groups</option>
+        ${[1,2,3,4,5,6,7,8,9,10,11,12].map(g=>`<option value="${g}">Group ${g} · Mēḷas ${(g-1)*6+1}–${g*6}</option>`).join('')}
+      </select>
+      <span class="nms-count" id="nms-mcount"></span>
+    </div>
+    <div id="nms-mela-body"></div>`;
+
+  let filterGrp=0, searchVal='', selectedMela=null;
+
+  function renderMela(){
+    const body=el('nms-mela-body');
+    const filtered=MELA_RAGAS.filter(m=>{
+      const gok=filterGrp===0||m.group===filterGrp;
+      const sok=!searchVal||m.name.toLowerCase().includes(searchVal.toLowerCase())||m.sa.includes(searchVal);
+      return gok&&sok;
+    });
+    el('nms-mcount').textContent=filtered.length+' / 72 rāgas';
+    body.innerHTML='';
+    [1,2,3,4,5,6,7,8,9,10,11,12].forEach(grpNum=>{
+      const grpMelas=filtered.filter(m=>m.group===grpNum);
+      if(!grpMelas.length)return;
+      const ma=grpNum<=6?'Śuddha-MA (MA₁)':'Tīvra-MA (MA₂)';
+      const grpSounds=SOUNDS.filter(s=>s.melaGroup.includes((grpNum-1)*6+1)||s.melaGroup.includes(grpNum*6));
+      const sec=document.createElement('div');
+      sec.innerHTML=`
+        <div class="nms-group-header">
+          <span class="nms-group-badge">Group ${grpNum} · Mēḷas ${(grpNum-1)*6+1}–${grpNum*6}</span>
+          <span class="nms-ma-label">${ma}</span>
+          <span class="nms-group-sounds">${grpSounds.slice(0,5).map(s=>`<span style="color:${s.color}" title="${s.name}">${s.akshara}</span>`).join('')}</span>
+        </div>
+        <div class="nms-mela-grid">${grpMelas.map(m=>{
+          const sLinks=SOUNDS.filter(s=>s.melaGroup.includes(m.n));
+          return `<div class="nms-mela-card" data-n="${m.n}">
+            <div style="display:flex;align-items:baseline;gap:.6rem;margin-bottom:.3rem">
+              <span class="nms-mela-num">${m.n}.</span>
+              <span class="nms-mela-sa">${m.sa}</span>
+            </div>
+            <div class="nms-mela-en">${m.name}</div>
+            <div class="nms-mela-svaras">${m.svaras}</div>
+            <div class="nms-mela-quality">${m.quality}</div>
+            <div class="nms-mela-bijas">
+              <div class="nms-detail-label" style="font-family:'Cinzel',serif;font-size:.67rem;color:#C8922A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Connected Bījas</div>
+              <div style="display:flex;gap:4px;flex-wrap:wrap">${sLinks.map(s=>`<span style="background:${s.color}18;border:1px solid ${s.color}44;border-radius:3px;padding:1px 6px;font-size:.72rem;color:${s.color};font-family:'Noto Serif Devanagari',serif">${s.akshara} ${s.iast}</span>`).join('')}</div>
+            </div>
+          </div>`;
+        }).join('')}</div>`;
+      body.appendChild(sec);
+    });
+    // click toggle
+    body.querySelectorAll('.nms-mela-card').forEach(card=>{
+      card.addEventListener('click',()=>{
+        const n=parseInt(card.dataset.n);
+        if(selectedMela===n){ card.classList.remove('selected'); selectedMela=null; }
+        else { body.querySelectorAll('.nms-mela-card').forEach(c=>c.classList.remove('selected')); card.classList.add('selected'); selectedMela=n; }
+      });
+    });
+  }
+
+  el('nms-msearch').addEventListener('input',e=>{ searchVal=e.target.value; renderMela(); });
+  el('nms-mgrp').addEventListener('change',e=>{ filterGrp=parseInt(e.target.value); renderMela(); });
+  renderMela();
+})();
+
+/* ─── ALANKAR PANEL ───────────────────────────────────────────────────── */
+(function buildAlankar(){
+  const panel=el('nms-panel-alankar');
+  panel.innerHTML=`<p class="nms-hint">The 9 Alankāras are the primary training patterns of Carnatic music, corresponding to the 9 Rasas and the ascent/descent of Kuṇḍalinī through the 9 primary cakra states.</p>`;
+  ALANKARAS.forEach(a=>{
+    const patternHTML=a.pattern.split(' ').map(tok=>{
+      if(tok==='|') return `<span class="nms-pattern-sep">·</span>`;
+      const isHigh=tok.includes("'"), isPrim=['SA','PA'].includes(tok.replace("'",""));
+      return `<span class="nms-pattern-note" style="background:${isPrim?'#8B1A1A55':isHigh?'#C8922A18':'rgba(255,255,255,0.04)'};border:1px solid ${isPrim?'#8B1A1A':'#3a2010'};color:${isPrim?'#D4A017':isHigh?'#C8922A':'rgba(232,213,163,.7)'}">${tok}</span>`;
+    }).join('');
+    const bijas=SOUNDS.filter(s=>s.alankara&&s.alankara.includes(String(a.n))||(a.n===1&&s.swaraNum===1)||(a.n===9&&s.iast==='Bha'));
+    const sthayi=a.n<=3?'Mandira sthāyi dominant':a.n<=6?'Madhya sthāyi dominant':'Tāra sthāyi dominant';
+    const div=document.createElement('div');
+    div.className='nms-alankar-card';
+    div.innerHTML=`
+      <div class="nms-alankar-top">
+        <div class="nms-alankar-num">${a.n}</div>
+        <div>
+          <div class="nms-alankar-name">${a.name}</div>
+          <div class="nms-alankar-motion">Motion: ${a.motion}</div>
+        </div>
+      </div>
+      <div class="nms-pattern-wrap">${patternHTML}</div>
+      <div class="nms-alankar-desc">${a.desc}</div>
+      <div style="margin-top:.8rem">
+        <div class="nms-detail-label" style="font-family:'Cinzel',serif;font-size:.67rem;color:#C8922A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Bīja resonances</div>
+        <div class="nms-alankar-bijas-row">
+          ${bijas.map(s=>`<span class="nms-alankar-bija-tag" style="background:${s.color}18;border:1px solid ${s.color}38;color:${s.color}">${s.akshara} — ${s.iast}</span>`).join('')}
+          <span style="background:rgba(212,160,23,.08);border:1px solid #D4A01733;border-radius:3px;padding:2px 8px;font-size:.71rem;color:rgba(212,160,23,.65)">${sthayi}</span>
+        </div>
+      </div>`;
+    panel.appendChild(div);
+  });
+})();
+
+/* ─── OCTAVE PANEL ────────────────────────────────────────────────────── */
+(function buildOctave(){
+  const panel=el('nms-panel-octave');
+  panel.innerHTML=`<p class="nms-hint">Indian classical music recognizes three primary octave registers (Mandra, Madhya, Tāra sthāyi). Here all 12 octaves spanning from infrasonic to transcendent are mapped with their bīja correspondences.</p>`;
+
+  OCTAVES.forEach((oct,idx)=>{
+    const coreBijas=SOUNDS.filter(s=>{
+      if(idx===0||idx===1) return false;
+      if(idx===2) return s.hz<=270;
+      if(idx===3) return s.hz===136||(s.hz>=240&&s.hz<270);
+      if(idx===4) return s.hz>=240&&s.hz<360;
+      if(idx===5) return s.hz>=320&&s.hz<400;
+      if(idx===6) return s.hz>=400&&s.hz<=480;
+      if(idx===7) return s.id==='s_sa'||s.id==='s_na';
+      if(idx===11) return s.id==='s_om'||s.id==='s_bha';
+      return false;
+    });
+    const row=document.createElement('div');
+    row.className='nms-octave-row';
+    row.innerHTML=`
+      <div class="nms-octave-hz">${oct.hz}</div>
+      <div class="nms-octave-bar" style="background:rgba(139,26,26,${oct.core?0.8:0.22})"></div>
+      <div class="nms-octave-card${oct.core?' core':''}">
+        <div class="nms-octave-name-row">
+          <span class="nms-octave-name${oct.core?' core':''}">${oct.name}</span>
+          ${oct.core?'<span class="nms-octave-badge">Sāstric sthāyi</span>':''}
+          ${idx===11?'<span class="nms-octave-para">Parā Nāda</span>':''}
+        </div>
+        <div class="nms-octave-note">${oct.note}</div>
+        <div class="nms-octave-bijas">${coreBijas.map(s=>`<span class="nms-octave-bija" style="color:${s.color};background:${s.color}18;border:1px solid ${s.color}33" title="${s.iast} — ${s.name}">${s.akshara}</span>`).join('')}
+          ${oct.core?`<span style="font-size:.67rem;color:rgba(232,213,163,.3);align-self:center;margin-left:4px">Mēḷas ${idx===4?'1–72 SA position':idx===5?'GA-MA zone':'PA-NI zone'}</span>`:''}
+        </div>
+      </div>`;
+    panel.appendChild(row);
+  });
+
+  // Three sthāyi
+  const sthayis=[
+    {name:"Mandra sthāyi",en:"Lower Register",hz:"64–256 Hz",note:"Earth-Water-Fire plane. La, Ra, Va, Ma bījas. Mūlādhāra to Maṇipūra. All 72 mēḷas can descend here.",color:"#8B4513"},
+    {name:"Madhya sthāyi",en:"Middle Register",hz:"256–512 Hz",note:"Fire-Air plane. Sa, Ta, Pa, Na bījas. Maṇipūra to Viśuddha. The primary singing zone. SA of classical music lives at 256Hz here.",color:"#228B22"},
+    {name:"Tāra sthāyi",en:"Upper Register",hz:"512–2048 Hz",note:"Ether-Space-Light plane. Ha, Da, Bha bījas. Viśuddha to Sahasrāra. The NI of this register resolves into the next octave — liberation.",color:"#4169E1"},
+  ];
+  const sg=document.createElement('div');
+  sg.innerHTML=`<div style="font-size:.71rem;color:#C8922A;text-transform:uppercase;letter-spacing:.15em;margin-bottom:1rem;font-family:'Cinzel',serif">Classical Three-Register (Tri-sthāyi) Summary</div>`;
+  sg.className='nms-sthayi-grid';
+  // rebuild properly
+  const stWrapper=document.createElement('div');
+  stWrapper.style.cssText='border-top:1px solid #3a2010;padding-top:1.5rem;margin-top:2rem';
+  stWrapper.innerHTML=`<div style="font-family:'Cinzel',serif;font-size:.71rem;color:#C8922A;text-transform:uppercase;letter-spacing:.15em;margin-bottom:1rem">Classical Three-Register (Tri-sthāyi) Summary</div>
+    <div class="nms-sthayi-grid">${sthayis.map(st=>`
+      <div class="nms-sthayi-card" style="border:1px solid ${st.color}33;border-top:3px solid ${st.color}">
+        <div class="nms-sthayi-name" style="font-family:'Noto Serif Devanagari',serif;color:${st.color}">${st.name}</div>
+        <div class="nms-sthayi-sub" style="color:rgba(232,213,163,.48)">${st.en} · ${st.hz}</div>
+        <div class="nms-sthayi-note">${st.note}</div>
+      </div>`).join('')}
+    </div>`;
+  panel.appendChild(stWrapper);
+})();
+
+/* ─── MAP PANEL ───────────────────────────────────────────────────────── */
+(function buildMap(){
+  const panel=el('nms-panel-map');
+  panel.innerHTML=`<p class="nms-hint">Complete interconnection of the dhyāna phonemes showing how each sound bridges across the 72 mēḷakarta system, 9 alankāras, 12 octaves, 7 cakras, and the 5 elements simultaneously.</p>`;
+
+  // Master table
+  const tw=document.createElement('div'); tw.className='nms-table-wrap';
+  tw.innerHTML=`<table class="nms-map-table">
+    <thead><tr>${['Bīja','Akṣara','Hz','Cakra','Svara','Element','Mēḷa Groups','Alankāra','Octave Zone'].map(h=>`<th>${h}</th>`).join('')}</tr></thead>
+    <tbody>${SOUNDS.map((s,i)=>`<tr>
+      <td style="font-family:'Noto Serif Devanagari',serif;font-size:1.3rem;color:${s.color}">${s.akshara}</td>
+      <td style="color:rgba(232,213,163,.78);font-style:italic">${s.iast}</td>
+      <td style="font-family:monospace;color:${s.color}">${s.hz}</td>
+      <td style="color:${chakraColors[s.chakraNum]}">${s.chakra.split('→')[0].trim()}</td>
+      <td style="color:#D4A017;font-family:monospace;font-size:.71rem">${s.swara.split('(')[0].trim()}</td>
+      <td style="color:rgba(232,213,163,.58)">${s.element.split('(')[0].trim()}</td>
+      <td><div style="display:flex;gap:2px;flex-wrap:wrap;max-width:200px">${s.melaGroup.slice(0,8).map(g=>`<span style="background:${s.color}18;border:1px solid ${s.color}33;border-radius:2px;padding:0 4px;font-size:.64rem;color:${s.color};font-family:monospace">${g}</span>`).join('')}${s.melaGroup.length>8?`<span style="font-size:.64rem;color:rgba(232,213,163,.3)">+${s.melaGroup.length-8}</span>`:''}</div></td>
+      <td style="font-family:monospace;font-size:.67rem;color:rgba(232,213,163,.58)">${s.alankara.split('|')[0].trim()}</td>
+      <td style="color:rgba(232,213,163,.52)">${s.octaveZone}</td>
+    </tr>`).join('')}</tbody>
+  </table>`;
+  panel.appendChild(tw);
+
+  // Insight cards
+  const insights=[
+    {title:"Sa + Ha = Ajapā Mantra",body:"Sa (inhalation, 400Hz) + Ha (exhalation, 450Hz) = the So-Haṃ breath-mantra repeated 21,600×/day. Both are prominent in all three dhyānas. Together they span mēḷa groups 3+8 (Gāyakapriya + Navanitam), corresponding to the two halves of the breath cycle.",color:"#1E90FF"},
+    {title:"La + Ra = Earth + Fire ascent",body:"La (240Hz, Mūlādhāra) → Ra (320Hz, Maṇipūra): the fundamental cakra ascent from earth to fire. Corresponds to alankāras 1→3. In 72 mēḷas: La anchors SA of all rāgas; Ra activates GA as the first transformative note.",color:"#CC3300"},
+    {title:"Oṃ spans all 12 octaves",body:"The Praṇava (136Hz Earth-tone) is the SA of the universe. Its harmonics appear at 272, 544, 1088, 2176Hz… spanning octaves 4–9. All 72 mēḷas are tuned relative to this fundamental. The Anusvāra (M) resonates in the 9th octave (pineal domain).",color:"#D4A017"},
+    {title:"Ma + Ta = Heart gate (Anāhata)",body:"Ma (270Hz, water) and Ta (360Hz, air) both converge at the Anāhata cakra — the gate between the lower 3 and upper 3 cakras. In alankāra 4 (Melsthayi), the transition from MA to PA is exactly this gateway.",color:"#228B22"},
+    {title:"Na = 15× Nitric Oxide production",body:"The nasal Na-kāra in tri-nayana, tārānāyaka, sura-nutāṃ activates the ethmoidal sinus as a resonant cavity. Research shows nasal humming at Na's frequency (400Hz zone) increases sinus nitric oxide 15-fold — a direct pharmacological effect of the dhyāna's Na-dense lines.",color:"#9B59B6"},
+    {title:"Bha = Liberation (NI → SA')",body:"Bha-kāra (Bhavānī, bhakta) is the NI (Niṣāda, 480Hz) — the 7th note that always resolves to the next octave's SA. In all 72 mēḷas, NI creates the strongest pull toward resolution. Bhavānī's name is literally the 'resolution note' — the soul's inevitable return to source.",color:"#C0392B"},
+  ];
+  const ig=document.createElement('div'); ig.className='nms-insights-grid';
+  ig.innerHTML=insights.map(c=>`<div class="nms-insight-card" style="border-left-color:${c.color};border:1px solid ${c.color}22;border-left:3px solid ${c.color}">
+    <div class="nms-insight-title" style="color:${c.color}">${c.title}</div>
+    <div class="nms-insight-body">${c.body}</div>
+  </div>`).join('');
+  panel.appendChild(ig);
+
+  // Cycle block
+  const cw=document.createElement('div'); cw.className='nms-cycle-wrap';
+  cw.innerHTML=`<div class="nms-cycle-label">Full Cycle: Dhyāna Line → Phoneme → Mēḷa → Alankāra → Octave → Cakra</div>
+    ${DHYANA_LINES.slice(0,4).map(line=>{
+      const ls=soundsForLine(line.id);
+      return `<div class="nms-cycle-line">
+        <div class="nms-cycle-deva">${line.deva}</div>
+        <div class="nms-cycle-sounds">${ls.map(s=>`<div class="nms-cycle-tag" style="background:${s.color}0e;border:1px solid ${s.color}28">
+          <span class="nms-cycle-tag-ak" style="color:${s.color}">${s.akshara}</span>
+          <span>${s.swara.split('(')[0].trim()} · Mēḷas ${s.melaGroup.slice(0,2).join(',')}… · ${s.octaveZone.split('(')[0].trim()}</span>
+        </div>`).join('')}
+        </div>
+      </div>`;
+    }).join('')}
+    <div style="font-size:.74rem;color:rgba(232,213,163,.3);font-style:italic;margin-top:.5rem">Showing Dhyāna I (first 4 lines). All 12 lines follow the same interconnection logic.</div>`;
+  panel.appendChild(cw);
+})();
+
+})(); // end IIFE
+</script>
+<!-- ═══════════ END NMS SECTION ═══════════ -->
 </body>
 </html>
